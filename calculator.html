@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Function Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="tabs">
+            <button onclick="showTab('basic')">Basic</button>
+            <button onclick="showTab('scientific')">Scientific</button>
+            <button onclick="showTab('graphing')">Graphing</button>
+            <button onclick="showTab('financial')">Financial</button>
+            <button onclick="showTab('stats')">Statistics</button>
+        </div>
+
+        <!-- Basic Calculator Tab -->
+        <div id="basic" class="tab-content">
+            <input type="text" id="basicDisplay" disabled>
+            <div class="buttons">
+                <button onclick="appendToBasicDisplay('C')">C</button>
+                <button onclick="appendToBasicDisplay('/')">/</button>
+                <button onclick="appendToBasicDisplay('*')">*</button>
+                <button onclick="appendToBasicDisplay('-')">-</button>
+                <button onclick="appendToBasicDisplay('7')">7</button>
+                <button onclick="appendToBasicDisplay('8')">8</button>
+                <button onclick="appendToBasicDisplay('9')">9</button>
+                <button onclick="appendToBasicDisplay('+')">+</button>
+                <button onclick="appendToBasicDisplay('4')">4</button>
+                <button onclick="appendToBasicDisplay('5')">5</button>
+                <button onclick="appendToBasicDisplay('6')">6</button>
+                <button onclick="appendToBasicDisplay('0')">0</button>
+                <button onclick="appendToBasicDisplay('1')">1</button>
+                <button onclick="appendToBasicDisplay('2')">2</button>
+                <button onclick="appendToBasicDisplay('3')">3</button>
+                <button onclick="appendToBasicDisplay('.')">.</button>
+                <button onclick="appendToBasicDisplay('(')">(</button>
+                <button onclick="appendToBasicDisplay(')')">)</button>
+                <button onclick="calculateBasic()">=</button>
+            </div>
+        </div>
+
+        <!-- Scientific Calculator Tab -->
+        <div id="scientific" class="tab-content">
+            <input type="text" id="scientificDisplay" disabled>
+            <div class="buttons">
+                <button onclick="clearScientificDisplay()">C</button>
+                <button onclick="appendToScientificDisplay('Math.sin(')">sin</button>
+                <button onclick="appendToScientificDisplay('Math.cos(')">cos</button>
+                <button onclick="appendToScientificDisplay('Math.tan(')">tan</button>
+                <button onclick="appendToScientificDisplay('Math.log(')">log</button>
+                <button onclick="appendToScientificDisplay('Math.exp(')">exp</button>
+                <button onclick="appendToScientificDisplay('Math.sqrt(')">sqrt</button>
+                <button onclick="appendToScientificDisplay('Math.pow(')">pow</button>
+                <button onclick="appendToScientificDisplay('(')">(</button>
+                <button onclick="appendToScientificDisplay(')')">)</button>
+                <button onclick="appendToScientificDisplay('/')">/</button>
+                <button onclick="appendToScientificDisplay('*')">*</button>
+                <button onclick="appendToScientificDisplay('-')">-</button>
+                <button onclick="appendToScientificDisplay('+')">+</button>
+                <button onclick="appendToScientificDisplay('0')">0</button>
+                <button onclick="appendToScientificDisplay('.')">.</button>
+                <button onclick="calculateScientific()">=</button>
+            </div>
+        </div>
+
+        <!-- Graphing Calculator Tab -->
+        <div id="graphing" class="tab-content">
+            <input type="text" id="graphFunctionInput" placeholder="Enter function (e.g., x*x - 4)">
+            <button onclick="plotGraph()">Plot Graph</button>
+            <div class="chart-container">
+                <canvas id="graph"></canvas>
+            </div>
+        </div>
+
+        <!-- Financial Calculator Tab -->
+        <div id="financial" class="tab-content">
+            <input type="text" id="financialInput" placeholder="Enter values">
+            <button onclick="calculateFinancial()">Calculate</button>
+            <div id="financialResult"></div>
+        </div>
+
+        <!-- Statistics Calculator Tab -->
+        <div id="stats" class="tab-content">
+            <input type="text" id="statsInput" placeholder="Enter numbers separated by commas">
+            <button onclick="calculateStats()">Calculate</button>
+            <div id="statsResult"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="calculator.js"></script>
+</body>
+</html>
